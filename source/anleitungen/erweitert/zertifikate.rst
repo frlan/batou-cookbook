@@ -44,18 +44,15 @@ Um die Möglichkeit des missbräuchlichen Zugriffs einzugrenzen, empfiehlt es si
     from batou.component import Component
     from batou.component import Attribute
 
+
     class MyCert(Component):
 
         privkey_content = Attribute(str)
         publickey_content = Attribute(str)
 
         def configure(self):
-            self.privkey = File(
-                'privkey.pem',
-                content=privkey_content)
-            self.publickey = File(
-                'publickey.pem',
-                content=publickey_content)
+            self.privkey = File('privkey.pem', content=self.privkey_content)
+            self.publickey = File('publickey.pem',content=self.publickey_content)
             self += self.privkey
             self += self.publickey
 
