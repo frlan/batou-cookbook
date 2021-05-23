@@ -96,3 +96,24 @@ Man kann jetzt die Versionen in den jeweiligen Umgebungen aussteuern:
 ... und ebenfalls indivduell setzen. Das funktioniert soweit ganz gut, wenn man
 
 Ansatz
+
+.. code-block:: python
+
+    from batou.component import Component
+    from batou.component import Attribute
+    import configparser
+
+    class Settings(Component)
+
+        versions_ini = Attribute(str, 'versions.ini')
+
+        def configure(self):
+            self.provide("settings", self)
+            self._load_versions()
+
+        def _load_versions(self):
+            self.versions = config = configparser.ConfigParser()
+            self.provide('versions', self.versions)
+            versions_ini = os.path.normpath(
+                os.path.join(self.root.defdir, "..", "..", self.versions_ini))
+            config.read(versions_ini)
