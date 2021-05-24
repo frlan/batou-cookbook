@@ -19,7 +19,7 @@ Batou Kochbuch
    anleitungen/erweitert/settings.rst
    anleitungen/plattform/NixOS_fcio/NFS
    sicherheit/sicherheit
-
+   faq/index
 
 Indices and tables
 ==================
