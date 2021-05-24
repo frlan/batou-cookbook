@@ -1,11 +1,11 @@
 Komponenten zum Informationsaustausch
 =====================================
 
-Eine einfache Methode zum Teilen von Informationen von zwischen verschiedenen Komponenten/Anwendungskomponenten sind gluing-Komponeten, deren einzigstes Ziel es im Grunde ist, Informationen für andere Komponnetenten zur Verfügung zu stellen. Entsprechend einfach sie zu erstellen und benutzen.
+Eine einfache Methode zum Teilen von Informationen  zwischen verschiedenen Komponenten sind gluing-Komponenten, deren einziges Ziel es ist, Informationen für andere Komponenten zur Verfügung zu stellen. Entsprechend einfach sie zu erstellen und benutzen.
 
 Sie müssen im Grunde zwei Dinge besitzen:
 
-* Die Informationen, die man austauschen möchte
+* Die Informationen, die ausgetauscht werden sollen
 * Ein ``self.provide()``, so dass man sie in andere Komponenten einbinden kann
 
 .. code-block:: python

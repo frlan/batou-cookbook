@@ -1,7 +1,7 @@
 Basis-Operationen
 =================
 
-Batou zerlegt ein komplexes Problem wie das installieren einen Awnedung in viele, kleine Probleme. Dies ist eine Übersicht über wichtige Grundfunktionen, die Batou mitbringt und die zur Lösung einfach zusammengesetzt werden können.
+Batou zerlegt komplexe Probleme, wie das Installieren einen Anwendung in viele, kleine und zum Teil schon bekannte Probleme. Dies ist eine Übersicht über wichtige Grundfunktionen, die zur Lösung einfach zusammengesetzt werden können.
 
 .. toctree::
    :maxdepth: 3
@@ -11,4 +11,5 @@ Batou zerlegt ein komplexes Problem wie das installieren einen Awnedung in viele
    dateien/JSON
    dateien/Binär
    gluing
+   sshkeys
 

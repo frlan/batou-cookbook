@@ -84,7 +84,7 @@ Typischerweise besteht der Prozess mehreren Schritten:
 Datenbankserver läuft nicht als postgres-User
 ---------------------------------------------
 
-Ein nicht sonderlich häufig vorkommends Problem -- doch sehr störend, wenn es dann doch mal passiert. Standardmäßig gehen die Komponenten aus ``batou_ext.postgres`` davon aus, dass der Cluster im Kontext der Users ``postgres`` läuft und so alle Befehle wie ``createdb``, ``psql`` via ``sudo -u postgres`` ausgefühtt werden können und damit die nötigen Berechtigungen erhalten. Sollte dem nicht der Fall sein, kann man dies auch einfach durch das Seten von ``command_prefix`` anpassen -- für dieses Beispiel nutzen wir den Nutzer ``pgsqluser``:
+Ein nicht sonderlich häufig vorkommendes Problem -- wenn dann doch sehr störend. Standardmäßig gehen die Komponenten aus ``batou_ext.postgres`` davon aus, dass der Cluster im Kontext der Users ``postgres`` läuft und so alle Befehle wie ``createdb``, ``psql`` via ``sudo -u postgres`` ausgefühtt werden können und damit die nötigen Berechtigungen erhalten. Sollte dem nicht der Fall sein, kann man dies auch einfach durch das Seten von ``command_prefix`` anpassen -- für dieses Beispiel nutzen wir den Nutzer ``pgsqluser``:
 
 .. code-block:: python
 
@@ -115,3 +115,4 @@ Ein nicht sonderlich häufig vorkommends Problem -- doch sehr störend, wenn es 
                 'uuid-ossp',
                 db=self.dbname,
                 command_prefix=self.command_prefix)
+
