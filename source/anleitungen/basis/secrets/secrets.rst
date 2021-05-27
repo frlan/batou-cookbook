@@ -10,7 +10,7 @@ Hat man komplexere Strukturen mit geheimen Daten, wird der Ansatz einzelne Daten
 
 .. Warning::
 
-    Batou unterstützt aktuell nur das Ablegen von Text-Dateien in den Secrets. Unter `Binaere_dateien_in_den_secrets`_ gibt es eine Anleitung, wie man das Pröblem lösen könnte.
+    Batou unterstützt aktuell nur das Ablegen von Text-Dateien in den Secrets. Unter `Binaere_dateien_in_den_secrets`_ gibt es eine Anleitung, wie man das Problem lösen könnte.
 
 
 Beispiel JSON

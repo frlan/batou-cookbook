@@ -1,13 +1,13 @@
 SSH-Keys
 ========
 
-Zum Auschecken von Quellcode-Repositories auf dem Zielhost oder andere Tätigkeiten braucht man oft SSH-Keys. Das Deployment für den selektiven Happy-Case an sich ist recht einfach, hat aber hier und da seine Dinge, auf die man achten muss. Eine nicht ganz vollständige Liste, wenn man es später mit OpenSSH nutzen möchte:
+Zum Auschecken von Quellcode-Repositories auf dem Zielhost oder für andere Tätigkeiten braucht man oft SSH-Keys. Das Deployment für den selektiven Happy-Case an sich ist recht einfach, hat aber hier und da seine Fallstricke, auf die man achten muss. Eine nicht ganz vollständige Liste, wenn man es später mit OpenSSH nutzen möchte könnte sein:
 
 * Private-Keys benötigen ein ``\n`` hinter dem ``-----END RSA PRIVATE KEY-----``
 * Die Dateien müssen in der Regel nach ``~.ssh/`` abgelegt werden, welches dem User gehören und mit ``rwx------`` angelegt sein müssen.
-* OpenSSH -- wenn keine weitere Konfiguration vorliegt -- nimmt alle Keys aus dem Verzeichnis und probiert diese durch. Das kann bei verschiedenen Systemen zu unoffensichtlichen "Zugriff verweigert"-Fehlern führen, wenn die Reihenfolge eine andere ist oder zu viele Keys im Verzeichnis vorliegen.
+* OpenSSH -- wenn keine weitere Konfiguration vorliegt -- nimmt alle Keys aus dem Verzeichnis ``~/.ssh/`` und probiert diese der Reihe nach durch. Das kann bei verschiedenen Systemen zu unoffensichtlichen "Zugriff verweigert"-Fehlern führen, wenn die Reihenfolge eine andere ist oder zu viele Keys im Verzeichnis vorliegen.
 * Um sich zuverlässig und sicher mit der gewünschten Gegenstelle verbinden zu können, sollte eine ~.ssh/known_hosts gepflegt werden, welche sich die Fingerprints der Server merkt.
-* OpenSSh-Keys sind in der Regel Plaintext-Dateien.
+* OpenSSH-Keys sind in der Regel Plaintext-Dateien.
 * Batou geht davon aus, dass es alleinig die Dinge managed, die im Deployment aufgeführt sind. D.h. bei unsauberer Benennung können Keys überschrieben werden und damit verloren gehen.
 
 .. warning::
@@ -47,8 +47,8 @@ Eine eigene Implementierung, die nicht alle der Punkte von oben aufgreift, könn
             self += File('~/.ssh/id_ed25519.pub', content=self.public_key)
 
 
-SSH-Keys mit batou_ext.ssh.SSHKeyPair
--------------------------------------
+SSH-Keys mit batou_ext.ssh.SSHKeyPair()
+---------------------------------------
 
 Einfacher ist es mit ``batou_ext.ssh.SSHKeyPair()``, welches einen großen Teil der regelmäßig verwendeten Muster im Deployment von SSH-Keys implementiert.
 
@@ -79,6 +79,7 @@ Ist ``provide_itself`` auf ``True`` gesetzt -- der Standardwert -- bietet sich d
 
     from batou.component import Component
 
+
     class MyCheckout(Component)
 
         def configure(self):
@@ -98,6 +99,7 @@ Möchte man unabhängig von der ``SSHKeyPair()``-Komponente die ``known_hosts`` 
 
     from batou_ext.ssh import ScanHost
     from batou.component import Component
+
 
     class MyKnownHosts(Component):
 

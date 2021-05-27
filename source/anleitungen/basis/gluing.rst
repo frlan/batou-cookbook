@@ -30,7 +30,7 @@ Für man sie zum Environment hinzu:
     [host:host01]
     components = mysharingcomponent
 
-kann man diese Werte einfach in anderen Komponenten nutzen
+kann man diese Werte einfach in anderen Komponenten nutzen:
 
 .. code-block:: python
 
