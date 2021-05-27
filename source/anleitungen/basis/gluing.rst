@@ -1,7 +1,7 @@
 Komponenten zum Informationsaustausch
 =====================================
 
-Eine einfache Methode zum Teilen von Informationen  zwischen verschiedenen Komponenten sind gluing-Komponenten, deren einziges Ziel es ist, Informationen für andere Komponenten zur Verfügung zu stellen. Entsprechend einfach sie zu erstellen und benutzen.
+Eine einfache Methode zum Teilen von Informationen  zwischen verschiedenen Komponenten sind gluing-Komponenten, deren einziges Ziel es ist, Informationen für andere Komponenten zur Verfügung zu stellen. Entsprechend einfach sie sind zu erstellen und benutzen.
 
 Sie müssen im Grunde zwei Dinge besitzen:
 
@@ -30,7 +30,6 @@ Für man sie zum Environment hinzu:
     [host:host01]
     components = mysharingcomponent
 
-
 kann man diese Werte einfach in anderen Komponenten nutzen
 
 .. code-block:: python
@@ -42,7 +41,7 @@ kann man diese Werte einfach in anderen Komponenten nutzen
 
         def configure(self):
 
-            self.data = self.require_one('mysharingcomponent)
+            self.data = self.require_one('mysharingcomponent')
 
             if self.data.zahl1 == 23:
 
