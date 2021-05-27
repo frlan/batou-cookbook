@@ -87,7 +87,7 @@ Später kann man über ein Dict im Produktionsenvironment auf den Inhalt zugreif
 
             self += File(
                 'myserverpasswords',
-                data=self.environment.secret_files['myserverpasswords.json'],
+                content=self.environment.secret_files['myserverpasswords.json'],
                 sensitive_data=True)
 
 Und da es sich dabei auch um vertrauliche Daten handelt, die im Log einer Pipeline nicht geloggt werden sollten, setzt dieses Beispiel noch das sensitive_data-Flag der File-Komponente.
