@@ -99,15 +99,15 @@ Ein nicht sonderlich häufig vorkommendes Problem -- wenn dann doch sehr stören
             self += User(
                 self.dbuser,
                 password=self.dbuserpassword,
-                command_prefix=self.command_prefix)
+                command_prefix=self.cmd_prefix)
 
             self += DB(
                 self.dbname,
                 owner=self.dbuser,
-                command_prefix=self.command_prefix)
+                command_prefix=self.cmd_prefix)
 
             self += xtension(
                 'uuid-ossp',
                 db=self.dbname,
-                command_prefix=self.command_prefix)
+                command_prefix=self.cmd_prefix)
 
