@@ -95,7 +95,7 @@ Ein nicht sonderlich häufig vorkommendes Problem -- wenn dann doch sehr stören
 
     class MyDataBase(Component)
 
-        command_prefix = 'sudo -u pgsqluser')
+        command_prefix = Attribute(str, 'sudo -u pgsqluser')
         dbname = Attribute(str, 'my_database')
         dbuser = Attribute(str, 'crocodile')
         dbuserpassword = Attribute(str, 'aligator3')
