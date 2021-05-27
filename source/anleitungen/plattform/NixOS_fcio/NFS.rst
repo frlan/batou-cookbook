@@ -20,7 +20,7 @@ Um sie zu nutzen, muss man im einfachsten Fall sie nur an einer zentralen import
     [host:host01]
     components = nfs
 
-Die Komponente greif in der Stadard-Einstellung auf die Pfade bei FCIO zurück, diese können aber einfach an die lokalen Gegebenheiten angepasst werden
+Die Komponente greift in der Stadard-Einstellung auf die Pfade bei FCIO zurück, diese können aber einfach an die lokalen Gegebenheiten angepasst werden
 
 .. code-block::
 

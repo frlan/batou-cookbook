@@ -63,6 +63,7 @@ Ein definiertes Zertifkatepaar mit batou_ext.ssl.Certificate() ausrollen
 .. hint::
 	Diese Methode lohnt sich meist nur, wenn man a) auf verschiedenen Umgebugnen zwischen LetsEncrypt und einem anderen Zertifikat wechseln möchte und/oder b) das implizite Monitoring aus der ``Certificate``-Komponente nutzen möchte. In der Preaxis ist aber zumiest eine gute Idee, dies zu tun.
 
+t.b.p.s.
 
 LetsEncrypt mit mit batou_ext.ssl.Certificate()
 -----------------------------------------------
@@ -71,3 +72,4 @@ LetsEncrypt mit mit batou_ext.ssl.Certificate()
 
     Einzelne Plattformen bieten Automatismen zum Generieren und Einbinden von LetsEncrypt-Zertifikaten an.
 
+t.b.p.s.

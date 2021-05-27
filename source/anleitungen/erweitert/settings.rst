@@ -20,24 +20,24 @@ Ein einfaches Beispiel mit zwei Komponenten:
 
 .. code-block:: python
 
-	from batou.component import Component
-	from batou.component import Attribute
-	from batou.lib.file import File
+        from batou.component import Component
+        from batou.component import Attribute
+        from batou.lib.file import File
 
 
-	class Backend(Component):
+        class Backend(Component):
 
-		api_name = Attribute(str, 'api.example.org')
+            api_name = Attribute(str, 'api.example.org')
 
-		def configure(self):
+            def configure(self):
 
-			self.provide('backend', self)
+                self.provide('backend', self)
 
 
-	class Webserver(Component):
+        class Webserver(Component):
 
-			self.backend = self.require('backend')
-			self += File('domain.txt', content=self.backend.api_name
+                self.backend = self.require('backend')
+                self += File('domain.txt', content=self.backend.api_name
 
 
 Die Herausforderung bei einem solchen Design ist es, dass man die richtige Denkrichtung befolgt: Das Datum, welches man an vielen Stellen der Anwendung benötigt, sollte an einem Blatt des Abhängigkeitenbaum definiert werden. Hier in diesem Beispiel ist es deswegen innerhalb der ``Backend``-Komponente eingetragen und entsprechend zu konfigurieren. Nicht zwingend offensichtlich zu finden, wenn man an dem Deployment etwas tun möchte.
@@ -46,44 +46,46 @@ Die Herausforderung bei einem solchen Design ist es, dass man die richtige Denkr
 Durch ``provide()`` und ``require()`` … reversed
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+t.b.p.s.
 
 Durch eine zentrale Settings-Komponente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Auch wenn die anderen Möglichkeiten durchaus ihren Anwendungsberiech haben und wahrscheinlich gut funktionieren, zeigte sich in der Praxis, dass die Schaffung einer zentrallen ``Settings``-Komponente für solche Fälle die Lösung mit den ringsten Kopfschmerzen war.
 
-.. code-block
+.. code-block::
 
     from batou.component import Component
     from batou.component import Attribute
-	from batou.lib.file import File
+    from batou.lib.file import File
 
     class Settings(Component):
 
-		api_name = Attribute(str)
-		www_name = Attribute(str)
+        api_name = Attribute(str)
+        www_name = Attribute(str)
 
         def configure(self):
             self.provide("settings", self)
 
     class Backend(Component):
-		def configure(self):
 
-			self.settings = self.require_one('settings')
-			self += File('domain.txt', content=self.settings.www_name)
+        def configure(self):
+
+            self.settings = self.require_one('settings')
+            self += File('domain.txt', content=self.settings.www_name)
 
 
     class Frontend(Component):
-		def configure(self):
+        def configure(self):
 
-			self.settings = self.require_one('settings')
+            self.settings = self.require_one('settings')
 
-			# Heranziehen des Backendes für z.B. das Docroot oder
-			# der Adresse, auf der das Backend zu erreichen ist
-			# In dem Beispiel ungenutzt.
-			self.backend = self.require_one('backend')
+            # Heranziehen des Backendes für z.B. das Docroot oder
+            # der Adresse, auf der das Backend zu erreichen ist
+            # In dem Beispiel ungenutzt.
+            self.backend = self.require_one('backend')
 
-			self += File('domain.txt', content=self.settings.www_name)
+            self += File('domain.txt', content=self.settings.www_name)
 
 
 
@@ -92,8 +94,8 @@ Versionskonfiguration
 
 Ein typisches Problem bei komplexeren Deployments ist, dass man die verschiedenen Versionen der einzelnen Komponenten an einer Stelle konzentriert haben möchte.
 
-Versionen über Standardwerte in der Komponente setzen
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Versionen über die Komponente setzen
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Der einfachste Weg Versionen zu setzen, ist dies direkt an der Komponente zu tun.
 
