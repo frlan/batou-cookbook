@@ -73,3 +73,19 @@ Vorteil, dass bei verschiedenen Quellen von ähnlich benannten
 Komponenten klar ist, wo die Komponente herkommt (z. B. wenn batou_ext
 benutzt), die zweite lässt sich einfacher lesen und schreiben, weil
 wesentlich weniger Redundanzen im Textanteil vorliegen.
+
+
+GPG UI oder Key-ID in den Secrets
+---------------------------------
+
+Man kann die Keys, welche für das Verschlüsseln der Secrets verwendet wrden, in zwei grundsätzlichen Arten angeben:
+
+#. Über die Key-ID
+#. Über eine UID eines Keys
+
+Die UID ist dabei eine konkrete Emailadresse, die von GnuPG dann in einen konrketen Key umgewandelt wird. Die Key-ID ist der entweder kurze oder längere Fingerprint des Schlüssels.
+
+Ein großer Vorteil der Methode über die UID ist, dass man sehr schnell erkennen kann, für dwen die Secrets vershclüsset sind. So gibt z. b. ``./batou secrets summary`` eine Liste der Emailadressen dann aus. Der Nachteil ist, dass beim Erneuten Verschlüsseln GnuPG einen Key für den Nutzer auswählt -- je nachdem, was es im Schlüsselbund findet und als vertrauenswürdig einstuft. Das kann dazu führen, dass die Secrets von jedem Nutzer mit einem effektiv anderen Set an Schlüsseln verschlüsselt werden.
+
+Die Angabe über KeyID ist dabei wesentlich eindeutiger, aber nicht gut lesebar, da z. B. summary in dem Fall tatsächlich nur die Liste der KeyID ausgibt, welche dann z. B. über `gpg --finger`` für den Nutzer in ein Mapping auf einen Nutzer umgewandelt werden muss.
+
