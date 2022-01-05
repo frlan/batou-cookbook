@@ -17,6 +17,7 @@ Batou Kochbuch
    anleitungen/erweitert/binaere-dateien-in-den-secrets
    anleitungen/erweitert/zertifikate
    anleitungen/erweitert/settings.rst
+   anleitungen/erweitert/debugging.rst
    anleitungen/plattform/NixOS_fcio/NFS
    sicherheit/sicherheit
    faq/index
