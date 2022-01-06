@@ -18,6 +18,7 @@ Batou Kochbuch
    anleitungen/erweitert/zertifikate
    anleitungen/erweitert/settings.rst
    anleitungen/erweitert/debugging.rst
+   anleitungen/erweitert/batou-pinning.rst
    anleitungen/plattform/NixOS_fcio/NFS
    sicherheit/sicherheit
    faq/index
