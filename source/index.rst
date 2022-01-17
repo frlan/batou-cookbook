@@ -14,6 +14,7 @@ Batou Kochbuch
    anleitungen/basis/secrets/secrets
    anleitungen/basis/postgresql/postgresql
    anleitungen/basis/shellout
+   anleitungen/basis/referenzen/referenzierungen.rst
    anleitungen/erweitert/binaere-dateien-in-den-secrets
    anleitungen/erweitert/zertifikate
    anleitungen/erweitert/settings.rst
