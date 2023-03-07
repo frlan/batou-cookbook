@@ -77,3 +77,39 @@ Für Passwörter und andere "Geheimnisse" gibt es das Flag ``sensitive_data``, d
     Not showing diff as it contains sensitive data.
 
 Das ist sinnvoll, wenn das Deployment z. B. von einer CI/CD-Plattform ausgeführt werden soll, so dass Passwörter dort nicht im Log aufgetragen werden.
+
+
+Mehr Variablen im Template
+--------------------------
+
+Wenn man mit Text-Dateien in batou via ``batou.lib.file.File`` arbeitet, kommt
+es immer mal vor, dass man zusätzliche Variablen im Jinja-Template benötigt.
+Eine Möglichkeit ist es, diese auf ``self``, also die Komponenten in der man es
+deployt, zu schreiben und dann im Template später mit
+``{{componente.meine_zusaetzliche_variable}}``. Je nach Art der Daten und
+Herkunft, kann das zu einer ganzen Menge an unleserlichen Code führen. 
+
+Eine andere Möglichkeit bietet ``batou.lib.file.File()`` direkt selbst mit.
+Über ``template_args`` kann man der Komponente ein Dictniory mit zusätzlichen
+Variablen reinreiche, die dann später im Template über den ``args.``-Namespace
+verwendet werden können. 
+
+So deployed zum Beispiel 
+
+.. code-block::python
+            self += batou.lib.file.File(
+            "build.sh",
+            mode=0o755,
+            template_args=dict(
+                deploydatetime = datetime.datetime.now(),)
+        )
+
+.. code-block::
+
+   #!bin/sh
+
+   # Deployed on {{args.deploydatetime}}
+   composer install -n
+
+
+eine Datei ``build.sh`` in derdas Deploymentdatum getamplated wird.
