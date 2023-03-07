@@ -112,4 +112,4 @@ So deployed zum Beispiel
    composer install -n
 
 
-eine Datei ``build.sh`` in derdas Deploymentdatum getamplated wird.
+eine Datei ``build.sh`` in der das Deploymentdatum getemplated wird.
