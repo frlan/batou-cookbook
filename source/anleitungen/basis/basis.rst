@@ -10,6 +10,7 @@ Batou zerlegt komplexe Probleme, wie das Installieren einen Anwendung, in viele,
    dateien/Text
    dateien/JSON
    dateien/Binär
+   dateien/Purge
    gluing
    sshkeys
 
